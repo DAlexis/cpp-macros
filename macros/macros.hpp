@@ -88,6 +88,15 @@
 //////////////////////////////////////////////////////////////////////
 // stdexcept classes wrappers
 //
+// This macro creates custom exception class derived from one of stdexcept classes.
+#define WRAP_STDEXCEPT(Target, Source)      class Target : public Source \
+                                            { \
+                                            public: \
+                                                Target(const std::string&& what_arg) : \
+                                                    Source(std::forward<const std::string>(what_arg)) \
+                                                { } \
+                                            };
+
 // This macro should be used in class to provide exceptions inherited from stdexcept.
 // It creates exceptions like YourClassName::logic_error so you can determine class that throwed it
 #define STDEXCEPT_WRAPPERS                  class logic_error     : public std::logic_error \

@@ -53,7 +53,7 @@
 // Macros to create singleton class
 //
 // This macro shoud be placed at public section of class
-#define SIGLETON_IN_CLASS(ClassName)    static ClassName& instance(); \
+#define SINGLETON_IN_CLASS(ClassName)   static ClassName& instance(); \
                                         ClassName(const ClassName&) = delete;
 
 // This macro should be placed in .cpp file containing implementation of singleton class.
